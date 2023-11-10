@@ -7,14 +7,14 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.transaction.annotation.Transactional;
 
-import co.edu.unicauca.asae.proyecto_parcial.models.DireccionEntity;
-import co.edu.unicauca.asae.proyecto_parcial.models.DocenteEntity;
-import co.edu.unicauca.asae.proyecto_parcial.models.PublicacionEntity;
-import co.edu.unicauca.asae.proyecto_parcial.models.TipoEntity;
-import co.edu.unicauca.asae.proyecto_parcial.repositories.DireccionRepository;
-import co.edu.unicauca.asae.proyecto_parcial.repositories.DocenteRepository;
-import co.edu.unicauca.asae.proyecto_parcial.repositories.PublicacionRepository;
-import co.edu.unicauca.asae.proyecto_parcial.repositories.TipoRepository;
+import co.edu.unicauca.asae.proyecto_parcial.dominio.modelos.DireccionEntity;
+import co.edu.unicauca.asae.proyecto_parcial.dominio.modelos.DocenteEntity;
+import co.edu.unicauca.asae.proyecto_parcial.dominio.modelos.PublicacionEntity;
+import co.edu.unicauca.asae.proyecto_parcial.dominio.modelos.TipoEntity;
+import co.edu.unicauca.asae.proyecto_parcial.infraestructura.output.persistencia.repositories.DireccionRepository;
+import co.edu.unicauca.asae.proyecto_parcial.infraestructura.output.persistencia.repositories.DocenteRepository;
+import co.edu.unicauca.asae.proyecto_parcial.infraestructura.output.persistencia.repositories.PublicacionRepository;
+import co.edu.unicauca.asae.proyecto_parcial.infraestructura.output.persistencia.repositories.TipoRepository;
 
 @SpringBootApplication
 @Transactional

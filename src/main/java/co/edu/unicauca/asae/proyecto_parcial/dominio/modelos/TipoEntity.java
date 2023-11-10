@@ -1,4 +1,4 @@
-package co.edu.unicauca.asae.proyecto_parcial.models;
+package co.edu.unicauca.asae.proyecto_parcial.dominio.modelos;
 
 import java.util.List;
 
@@ -18,7 +18,10 @@ import lombok.Setter;
 
 @Entity
 @Table(name = "Tipos")
-@Getter @Setter @NoArgsConstructor @AllArgsConstructor
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class TipoEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

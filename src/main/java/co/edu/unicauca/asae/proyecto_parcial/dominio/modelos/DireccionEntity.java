@@ -1,4 +1,4 @@
-package co.edu.unicauca.asae.proyecto_parcial.models;
+package co.edu.unicauca.asae.proyecto_parcial.dominio.modelos;
 
 import java.io.Serializable;
 
@@ -18,12 +18,15 @@ import lombok.Setter;
 
 @Entity
 @Table(name = "Direcciones")
-@Getter @Setter @NoArgsConstructor @AllArgsConstructor
-public class DireccionEntity implements Serializable{
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+public class DireccionEntity implements Serializable {
 
     @Id
     private int idPersona;
-    @OneToOne(cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
+    @OneToOne(cascade = { CascadeType.PERSIST, CascadeType.REMOVE })
     @MapsId("idPersona")
     @JoinColumn(name = "idPersona")
     private DocenteEntity objPersona;

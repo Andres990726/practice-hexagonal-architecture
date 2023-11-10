@@ -1,4 +1,4 @@
-package co.edu.unicauca.asae.proyecto_parcial.models;
+package co.edu.unicauca.asae.proyecto_parcial.dominio.modelos;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -16,7 +16,10 @@ import lombok.Setter;
 
 @Entity
 @Table(name = "Publicaciones")
-@Getter @Setter @NoArgsConstructor @AllArgsConstructor
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class PublicacionEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

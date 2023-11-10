@@ -1,4 +1,4 @@
-package co.edu.unicauca.asae.proyecto_parcial.models;
+package co.edu.unicauca.asae.proyecto_parcial.dominio.modelos;
 
 import java.util.ArrayList;
 import java.util.List;

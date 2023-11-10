@@ -1,4 +1,4 @@
-package co.edu.unicauca.asae.proyecto_parcial.models;
+package co.edu.unicauca.asae.proyecto_parcial.dominio.modelos;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -14,7 +14,9 @@ import lombok.Setter;
 
 @Entity
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
-@Getter @Setter @NoArgsConstructor 
+@Getter
+@Setter
+@NoArgsConstructor
 public abstract class PersonaEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
@@ -28,10 +30,10 @@ public abstract class PersonaEntity {
     @Column(nullable = false, length = 30)
     private String apellidos;
 
-    public PersonaEntity(String tipoIdentificacion, String numeroIdentificacion, String nombres, String apellidos){
-        this.tipoIdentificacion= tipoIdentificacion;
-        this.numeroIdentificacion= numeroIdentificacion;
-        this.nombres= nombres;
-        this.apellidos= apellidos;
+    public PersonaEntity(String tipoIdentificacion, String numeroIdentificacion, String nombres, String apellidos) {
+        this.tipoIdentificacion = tipoIdentificacion;
+        this.numeroIdentificacion = numeroIdentificacion;
+        this.nombres = nombres;
+        this.apellidos = apellidos;
     }
 }
