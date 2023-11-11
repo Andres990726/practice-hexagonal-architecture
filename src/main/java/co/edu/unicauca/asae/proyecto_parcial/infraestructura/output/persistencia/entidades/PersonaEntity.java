@@ -1,4 +1,4 @@
-package co.edu.unicauca.asae.proyecto_parcial.dominio.modelos;
+package co.edu.unicauca.asae.proyecto_parcial.infraestructura.output.persistencia.entidades;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

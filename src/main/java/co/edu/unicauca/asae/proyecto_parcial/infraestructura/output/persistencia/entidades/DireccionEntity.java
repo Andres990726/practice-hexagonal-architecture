@@ -1,10 +1,11 @@
-package co.edu.unicauca.asae.proyecto_parcial.dominio.modelos;
+package co.edu.unicauca.asae.proyecto_parcial.infraestructura.output.persistencia.entidades;
 
 import java.io.Serializable;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.MapsId;
@@ -25,8 +26,9 @@ import lombok.Setter;
 public class DireccionEntity implements Serializable {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idPersona;
-    @OneToOne(cascade = { CascadeType.PERSIST, CascadeType.REMOVE })
+    @OneToOne
     @MapsId("idPersona")
     @JoinColumn(name = "idPersona")
     private DocenteEntity objPersona;

@@ -7,10 +7,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.transaction.annotation.Transactional;
 
-import co.edu.unicauca.asae.proyecto_parcial.dominio.modelos.DireccionEntity;
-import co.edu.unicauca.asae.proyecto_parcial.dominio.modelos.DocenteEntity;
-import co.edu.unicauca.asae.proyecto_parcial.dominio.modelos.PublicacionEntity;
-import co.edu.unicauca.asae.proyecto_parcial.dominio.modelos.TipoEntity;
+import co.edu.unicauca.asae.proyecto_parcial.infraestructura.output.persistencia.entidades.DireccionEntity;
+import co.edu.unicauca.asae.proyecto_parcial.infraestructura.output.persistencia.entidades.DocenteEntity;
+import co.edu.unicauca.asae.proyecto_parcial.infraestructura.output.persistencia.entidades.PublicacionEntity;
+import co.edu.unicauca.asae.proyecto_parcial.infraestructura.output.persistencia.entidades.TipoEntity;
 import co.edu.unicauca.asae.proyecto_parcial.infraestructura.output.persistencia.repositories.DireccionRepository;
 import co.edu.unicauca.asae.proyecto_parcial.infraestructura.output.persistencia.repositories.DocenteRepository;
 import co.edu.unicauca.asae.proyecto_parcial.infraestructura.output.persistencia.repositories.PublicacionRepository;
@@ -131,5 +131,12 @@ private void crearDocente(){
 	docente.setVinculacion("planta");
 	docente.agregarPublicacion(objPublicacionAgregado);
 	DocenteEntity objDocenteAlmacenado =servicioBDDocentes.save(docente);
+
+	DireccionEntity direccion = new DireccionEntity();
+	direccion.setCiudad("popayan");
+	direccion.setPais("colombia");
+	direccion.setDireccionResidencia("carrera 34-56");
+	direccion.setObjPersona(objDocenteAlmacenado);
+	servicioBDDirecciones.save(direccion);
 	}
 }

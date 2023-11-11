@@ -2,7 +2,7 @@ package co.edu.unicauca.asae.proyecto_parcial.infraestructura.output.persistenci
 
 import org.springframework.data.repository.CrudRepository;
 
-import co.edu.unicauca.asae.proyecto_parcial.dominio.modelos.DireccionEntity;
+import co.edu.unicauca.asae.proyecto_parcial.infraestructura.output.persistencia.entidades.DireccionEntity;
 
 public interface DireccionRepository extends CrudRepository<DireccionEntity, Integer> {
 

@@ -1,14 +1,12 @@
-package co.edu.unicauca.asae.proyecto_parcial.dominio.modelos;
-
-import java.util.List;
+package co.edu.unicauca.asae.proyecto_parcial.infraestructura.output.persistencia.entidades;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -17,17 +15,20 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name = "Tipos")
+@Table(name = "Publicaciones")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class TipoEntity {
+public class PublicacionEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idTipo;
+    private int idPublicacion;
+    @ManyToOne
+    @JoinColumn(name = "idTipo")
+    private TipoEntity objTipo;
     @Column(nullable = false, length = 30)
-    private String nombre;
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "objTipo")
-    private List<PublicacionEntity> publicaciones;
+    private String titulo;
+    @Column(nullable = false, length = 30)
+    private String area;
 }
