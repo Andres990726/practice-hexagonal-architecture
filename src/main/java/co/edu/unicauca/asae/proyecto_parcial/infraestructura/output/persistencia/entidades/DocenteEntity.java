@@ -28,7 +28,7 @@ public class DocenteEntity extends PersonaEntity {
     @Column(nullable = false, length = 30)
     private String departamento;
 
-    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "objPersona")
+    @OneToOne(cascade = CascadeType.ALL, mappedBy = "objPersona")
     private DireccionEntity objDireccion;
 
     @ManyToMany
@@ -41,12 +41,11 @@ public class DocenteEntity extends PersonaEntity {
     }
 
     public DocenteEntity(String tipoIdentificacion, String numeroIdentificacion, String nombres, String apellidos,
-            String correo, String vinculacion, String departamento, DireccionEntity objDireccion) {
+            String correo, String vinculacion, String departamento) {
         super(tipoIdentificacion, numeroIdentificacion, nombres, apellidos);
         this.correo = correo;
         this.vinculacion = vinculacion;
         this.departamento = departamento;
-        this.objDireccion = objDireccion;
         publicaciones = new ArrayList<PublicacionEntity>();
     }
 

@@ -54,14 +54,14 @@ private void crearDocente(){
 	docente.setCorreo("marce@unicauca.edu.co");
 	docente.setDepartamento("fisica");
 	docente.setVinculacion("ocasional");
-	DocenteEntity objDocenteAlmacenado =servicioBDDocentes.save(docente);
-
-
 	DireccionEntity direccion = new DireccionEntity();
 	direccion.setCiudad("popayan");
 	direccion.setPais("colombia");
 	direccion.setDireccionResidencia("calle 32");
-	direccion.setObjPersona(objDocenteAlmacenado);
+	direccion.setObjPersona(docente);
+	docente.setObjDireccion(direccion);
+	servicioBDDocentes.save(docente);
+
 	servicioBDDirecciones.save(direccion);
 
 
@@ -78,6 +78,7 @@ private void crearDocente(){
 			System.out.println("Correo: " + docente.getCorreo());
 			System.out.println("Departamento: " + docente.getDepartamento());
 			System.out.println("Vinculación: " + docente.getVinculacion());
+			System.out.println("direccion: " + docente.getObjDireccion().getDireccionResidencia());
 			for(PublicacionEntity publicacion: docente.getPublicaciones()){
 			System.out.println("--------------------Publicacion docente-----------------");
 			System.out.println("id: "+publicacion.getIdPublicacion());
@@ -91,8 +92,7 @@ private void crearDocente(){
 
 	private void consultarDirecciones(){
 		Iterable<DireccionEntity> listaDirecciones = this.servicioBDDirecciones.findAll();
-		for (DireccionEntity direccion: listaDirecciones){
-			// System.out.println("Id: "+ direccion.getIdDireccion());
+		for (DireccionEntity direccion : listaDirecciones) {
 			System.out.println("Direccion: "+ direccion.getDireccionResidencia());
 			System.out.println("Ciudad: "+ direccion.getCiudad());
 			System.out.println("Pais: "+ direccion.getPais());
@@ -122,21 +122,21 @@ private void crearDocente(){
 		PublicacionEntity objPublicacionAgregado = servicioBDPublicaciones.save(publicacion1);
 
 		DocenteEntity docente = new DocenteEntity();
-	docente.setTipoIdentificacion("cedula");
-	docente.setNumeroIdentificacion("22345");
-	docente.setNombres("Carla");
-	docente.setApellidos("ramirez");
-	docente.setCorreo("carla@unicauca.edu.co");
-	docente.setDepartamento("matematica");
-	docente.setVinculacion("planta");
-	docente.agregarPublicacion(objPublicacionAgregado);
-	DocenteEntity objDocenteAlmacenado =servicioBDDocentes.save(docente);
-
-	DireccionEntity direccion = new DireccionEntity();
-	direccion.setCiudad("popayan");
-	direccion.setPais("colombia");
-	direccion.setDireccionResidencia("carrera 34-56");
-	direccion.setObjPersona(objDocenteAlmacenado);
-	servicioBDDirecciones.save(direccion);
+		docente.setTipoIdentificacion("cedula");
+		docente.setNumeroIdentificacion("22345");
+		docente.setNombres("Carla");
+		docente.setApellidos("ramirez");
+		docente.setCorreo("carla@unicauca.edu.co");
+		docente.setDepartamento("matematica");
+		docente.setVinculacion("planta");
+		docente.agregarPublicacion(objPublicacionAgregado);
+		DireccionEntity direccion = new DireccionEntity();
+		direccion.setCiudad("popayan");
+		direccion.setPais("colombia");
+		direccion.setDireccionResidencia("carrera 34-56");
+		direccion.setObjPersona(docente);
+		docente.setObjDireccion(direccion);
+		servicioBDDocentes.save(docente);
+		servicioBDDirecciones.save(direccion);
 	}
 }

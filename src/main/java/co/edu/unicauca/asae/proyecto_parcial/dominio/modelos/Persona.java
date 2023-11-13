@@ -7,7 +7,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-public abstract class Persona {
+public class Persona {
     private int idPersona;
     private String tipoIdentificacion;
     private String numeroIdentificacion;

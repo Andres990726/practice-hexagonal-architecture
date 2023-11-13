@@ -2,8 +2,10 @@ package co.edu.unicauca.asae.proyecto_parcial.infraestructura.output.persistenci
 
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -22,14 +24,13 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-@AllArgsConstructor
 public class DireccionEntity implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "idPersona")
     private int idPersona;
-    @OneToOne
-    @MapsId("idPersona")
+    @MapsId
+    @OneToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "idPersona")
     private DocenteEntity objPersona;
     @Column(nullable = false, length = 30)
@@ -38,4 +39,5 @@ public class DireccionEntity implements Serializable {
     private String ciudad;
     @Column(nullable = false, length = 30)
     private String pais;
+
 }
