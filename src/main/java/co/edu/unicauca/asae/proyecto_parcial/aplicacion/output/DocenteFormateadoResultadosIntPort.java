@@ -6,6 +6,4 @@ public interface DocenteFormateadoResultadosIntPort {
 
     public void retornarRespuestaErrorCorreoExiste(String mensaje);
 
-    public void retornarRespuestaErrorReglaDeNegocio(String mensaje);
-
 }

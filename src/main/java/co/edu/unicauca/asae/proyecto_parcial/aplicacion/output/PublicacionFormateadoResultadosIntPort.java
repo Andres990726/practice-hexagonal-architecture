@@ -4,5 +4,4 @@ public interface PublicacionFormateadoResultadosIntPort {
 
     public void retornarRespuestaErrorTituloExiste(String mensaje);
 
-    public void retornarRespuestaErrorReglaDeNegocio(String mensaje);
 }
