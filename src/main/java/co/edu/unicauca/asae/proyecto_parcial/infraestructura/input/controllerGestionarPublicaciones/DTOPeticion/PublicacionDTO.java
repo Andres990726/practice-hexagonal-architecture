@@ -1,4 +1,4 @@
-package co.edu.unicauca.asae.proyecto_parcial.infraestructura.input.DTOPeticion;
+package co.edu.unicauca.asae.proyecto_parcial.infraestructura.input.controllerGestionarPublicaciones.DTOPeticion;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -10,8 +10,8 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 public class PublicacionDTO {
-    private int idTipo;
+    private int idPublicacion;
+    private TipoDTO objTipo;
     private String titulo;
     private String area;
-    private String numeroIdentificacion;
 }
