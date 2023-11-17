@@ -37,4 +37,10 @@ public class GestionarPublicacionCUAdapter implements GestionarPublicacionCUIntP
         return listaObtenida;
     }
 
+    @Override
+    public List<Publicacion> listarPorPatron(String patron) {
+        List<Publicacion> listaObtenida = objGestionarPublicacionGateway.listarPorPatron(patron);
+        return listaObtenida;
+    }
+
 }

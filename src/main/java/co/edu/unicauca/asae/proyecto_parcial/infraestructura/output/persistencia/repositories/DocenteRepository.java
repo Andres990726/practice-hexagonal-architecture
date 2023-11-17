@@ -9,6 +9,7 @@ public interface DocenteRepository extends CrudRepository<DocenteEntity, Integer
     @Query("SELECT count(*) FROM DocenteEntity p  WHERE p.numeroIdentificacion=?1")
     Integer existeDocentePorIdentificacion(String numeroIdentificacion);
 
-    @Query("SELECT count(*) FROM DocenteEntity p  WHERE p.correo=?1")
+    @Query("SELECT count(*) FROM DocenteEntity p  WHERE LOWER(p.correo) = LOWER(:correo)")
     Integer existeDocentePorCorreo(String correo);
+
 }

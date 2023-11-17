@@ -46,4 +46,13 @@ public class GestionarPublicacionGatewayImplAdapter implements GestionarPublicac
         return listaObtenida;
     }
 
+    @Override
+    public List<Publicacion> listarPorPatron(String patron) {
+        Iterable<PublicacionEntity> lista = this.objPublicacionRepository
+                .findByTituloContainingIgnoreCaseOrderByIdPublicacionDesc(patron);
+        List<Publicacion> listaObtenida = this.publicacionModelMapper.map(lista, new TypeToken<List<Publicacion>>() {
+        }.getType());
+        return listaObtenida;
+    }
+
 }

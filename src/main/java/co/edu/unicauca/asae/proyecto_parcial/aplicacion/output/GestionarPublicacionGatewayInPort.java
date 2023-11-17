@@ -10,4 +10,6 @@ public interface GestionarPublicacionGatewayInPort {
     public Publicacion guardar(Publicacion objPublicacion);
 
     public List<Publicacion> listar();
+
+    public List<Publicacion> listarPorPatron(String patron);
 }

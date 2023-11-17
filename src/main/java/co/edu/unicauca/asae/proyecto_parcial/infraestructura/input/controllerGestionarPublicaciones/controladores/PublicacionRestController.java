@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import co.edu.unicauca.asae.proyecto_parcial.aplicacion.input.GestionarPublicacionCUIntPort;
@@ -43,6 +44,15 @@ public class PublicacionRestController {
     public ResponseEntity<List<PublicacionDTORespuesta>> listar() {
         ResponseEntity<List<PublicacionDTORespuesta>> objRespuesta = new ResponseEntity<List<PublicacionDTORespuesta>>(
                 objMapeador.mapearDePublicacionesARespuesta(this.objGestionarPublicacionCUIntPort.listar()),
+                HttpStatus.OK);
+        return objRespuesta;
+    }
+
+    @GetMapping("/publicaciones/titulos")
+    public ResponseEntity<List<PublicacionDTORespuesta>> listarPorPatron(@RequestParam String patron) {
+        ResponseEntity<List<PublicacionDTORespuesta>> objRespuesta = new ResponseEntity<List<PublicacionDTORespuesta>>(
+                objMapeador
+                        .mapearDePublicacionesARespuesta(this.objGestionarPublicacionCUIntPort.listarPorPatron(patron)),
                 HttpStatus.OK);
         return objRespuesta;
     }

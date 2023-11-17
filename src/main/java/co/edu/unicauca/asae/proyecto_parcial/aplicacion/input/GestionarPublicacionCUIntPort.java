@@ -10,4 +10,6 @@ public interface GestionarPublicacionCUIntPort {
 
     public List<Publicacion> listar();
 
+    public List<Publicacion> listarPorPatron(String patron);
+
 }
