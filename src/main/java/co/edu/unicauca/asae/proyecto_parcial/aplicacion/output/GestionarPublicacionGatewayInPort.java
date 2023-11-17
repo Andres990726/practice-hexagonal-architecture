@@ -7,7 +7,7 @@ import co.edu.unicauca.asae.proyecto_parcial.dominio.modelos.Publicacion;
 public interface GestionarPublicacionGatewayInPort {
     public boolean existePublicacionPorTitulo(String titulo);
 
-    public Publicacion guardar(Publicacion objPublicacion);
+    public Publicacion guardar(int id, Publicacion objPublicacion);
 
     public List<Publicacion> listar();
 

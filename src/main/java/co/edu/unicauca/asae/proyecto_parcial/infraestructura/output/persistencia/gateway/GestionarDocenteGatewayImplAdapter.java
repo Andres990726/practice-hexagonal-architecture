@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import co.edu.unicauca.asae.proyecto_parcial.aplicacion.output.GestionarDocenteGatewayInPort;
@@ -17,7 +18,8 @@ public class GestionarDocenteGatewayImplAdapter implements GestionarDocenteGatew
     private final DocenteRepository objDocenteRepository;
     private final ModelMapper docenteModelMapper;
 
-    public GestionarDocenteGatewayImplAdapter(DocenteRepository objDocenteRepository, ModelMapper docenteModelMapper) {
+    public GestionarDocenteGatewayImplAdapter(DocenteRepository objDocenteRepository,
+            @Qualifier("docenteMapper") ModelMapper docenteModelMapper) {
         this.objDocenteRepository = objDocenteRepository;
         this.docenteModelMapper = docenteModelMapper;
     }

@@ -19,14 +19,14 @@ public class GestionarPublicacionCUAdapter implements GestionarPublicacionCUIntP
     }
 
     @Override
-    public Publicacion crear(Publicacion objPublicacion) {
+    public Publicacion crear(int id, Publicacion objPublicacion) {
         Publicacion objPublicacionCreado = null;
         if (this.objGestionarPublicacionGateway.existePublicacionPorTitulo(objPublicacion.getTitulo())) {
             this.objPublicacionFormateadoResultados
                     .retornarRespuestaErrorTituloExiste(
                             "Error, se encuentra en el sistema una publicación con ese titulo");
         } else {
-            objPublicacionCreado = this.objGestionarPublicacionGateway.guardar(objPublicacion);
+            objPublicacionCreado = this.objGestionarPublicacionGateway.guardar(id, objPublicacion);
         }
         return objPublicacionCreado;
     }

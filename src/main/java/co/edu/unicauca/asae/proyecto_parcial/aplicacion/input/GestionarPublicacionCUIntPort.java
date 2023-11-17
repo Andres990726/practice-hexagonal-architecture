@@ -6,7 +6,7 @@ import co.edu.unicauca.asae.proyecto_parcial.dominio.modelos.Publicacion;
 
 public interface GestionarPublicacionCUIntPort {
 
-    public Publicacion crear(Publicacion objPublicacion);
+    public Publicacion crear(int id, Publicacion objPublicacion);
 
     public List<Publicacion> listar();
 

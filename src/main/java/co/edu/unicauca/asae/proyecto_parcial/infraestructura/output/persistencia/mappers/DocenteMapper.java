@@ -2,6 +2,7 @@ package co.edu.unicauca.asae.proyecto_parcial.infraestructura.output.persistenci
 
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeMap;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -12,6 +13,7 @@ import co.edu.unicauca.asae.proyecto_parcial.infraestructura.output.persistencia
 public class DocenteMapper {
 
     @Bean
+    @Qualifier("docenteMapper")
     public ModelMapper modelMapper() {
         ModelMapper objMapper = new ModelMapper();
         TypeMap<DocenteEntity, Docente> mapa = objMapper.emptyTypeMap(DocenteEntity.class, Docente.class);
