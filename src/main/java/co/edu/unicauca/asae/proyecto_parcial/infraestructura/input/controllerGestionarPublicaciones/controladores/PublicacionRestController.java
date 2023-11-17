@@ -2,8 +2,11 @@ package co.edu.unicauca.asae.proyecto_parcial.infraestructura.input.controllerGe
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -20,13 +23,14 @@ import lombok.RequiredArgsConstructor;
 @RestController
 @RequestMapping("/api")
 @RequiredArgsConstructor
+@Validated
 public class PublicacionRestController {
 
     private final GestionarPublicacionCUIntPort objGestionarPublicacionCUIntPort;
     private final PublicacionMapperInfraestructuraDominio objMapeador;
 
     @PostMapping("/publicaciones")
-    public ResponseEntity<PublicacionDTORespuesta> create(@RequestBody PublicacionDTO objPublicacion) {
+    public ResponseEntity<PublicacionDTORespuesta> create(@Valid @RequestBody PublicacionDTO objPublicacion) {
 
         Publicacion objPublicacionCrear = objMapeador.mapearDePeticionAPublicacion(objPublicacion);
         Publicacion objPublicacionCreada = objGestionarPublicacionCUIntPort.crear(objPublicacionCrear);

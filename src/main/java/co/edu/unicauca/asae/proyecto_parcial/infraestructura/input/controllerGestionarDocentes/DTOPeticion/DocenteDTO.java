@@ -3,6 +3,7 @@ package co.edu.unicauca.asae.proyecto_parcial.infraestructura.input.controllerGe
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 
 import co.edu.unicauca.asae.proyecto_parcial.infraestructura.input.controllerGestionarPublicaciones.DTOPeticion.PublicacionDTO;
@@ -13,6 +14,7 @@ import lombok.Setter;
 @Setter
 public class DocenteDTO extends PersonaDTO {
     @NotNull(message = "{docente.correo.emply}")
+    @Email(message = "{docente.correo.format}")
     private String correo;
     @NotNull(message = "{docente.vinculacion.emply}")
     private String vinculacion;

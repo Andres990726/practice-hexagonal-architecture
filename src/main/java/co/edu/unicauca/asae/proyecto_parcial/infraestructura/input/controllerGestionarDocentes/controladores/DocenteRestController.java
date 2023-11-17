@@ -2,8 +2,11 @@ package co.edu.unicauca.asae.proyecto_parcial.infraestructura.input.controllerGe
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -20,13 +23,14 @@ import lombok.RequiredArgsConstructor;
 @RestController
 @RequestMapping("/api")
 @RequiredArgsConstructor
+@Validated
 public class DocenteRestController {
 
     private final GestionarDocenteCUIntPort objGestionarDocenteCUIntPort;
     private final DocenteMapperInfraestructuraDominio objMapeador;
 
     @PostMapping("/docentes")
-    public ResponseEntity<DocenteDTORespuesta> create(@RequestBody DocenteDTO objDocente) {
+    public ResponseEntity<DocenteDTORespuesta> create(@Valid @RequestBody DocenteDTO objDocente) {
 
         Docente objDocenteCrear = objMapeador.mapearDePeticionADocente(objDocente);
         Docente objDocenteCreado = objGestionarDocenteCUIntPort.crear(objDocenteCrear);
