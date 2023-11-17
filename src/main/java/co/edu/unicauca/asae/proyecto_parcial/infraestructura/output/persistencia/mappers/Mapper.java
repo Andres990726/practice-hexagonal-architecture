@@ -14,9 +14,10 @@ public class Mapper {
     @Bean
     public ModelMapper modelMapper() {
         ModelMapper objMapper = new ModelMapper();
-        TypeMap<DocenteEntity, Docente> mapa = objMapper.emptyTypeMap(DocenteEntity.class, Docente.class);
-        mapa.addMappings(m -> m.skip(Docente::setObjDireccion)).implicitMappings();
-        mapa.addMappings(m -> m.skip(Docente::setPublicaciones)).implicitMappings();
+        // TypeMap<DocenteEntity, Docente> mapa =
+        // objMapper.emptyTypeMap(DocenteEntity.class, Docente.class);
+        // mapa.addMappings(m -> m.skip(Docente::setObjDireccion)).implicitMappings();
+        // mapa.addMappings(m -> m.skip(Docente::setPublicaciones)).implicitMappings();
         return objMapper;
     }
 
