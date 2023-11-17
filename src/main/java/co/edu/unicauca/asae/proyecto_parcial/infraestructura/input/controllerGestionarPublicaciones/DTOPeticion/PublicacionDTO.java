@@ -1,8 +1,11 @@
 package co.edu.unicauca.asae.proyecto_parcial.infraestructura.input.controllerGestionarPublicaciones.DTOPeticion;
 
+import java.util.List;
+
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import co.edu.unicauca.asae.proyecto_parcial.infraestructura.input.controllerGestionarDocentes.DTOPeticion.DocenteDTO;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -21,4 +24,5 @@ public class PublicacionDTO {
     @NotNull(message = "{publicacion.area.emply}")
     @Size(min = 4, max = 20, message = "{publicacion.area.size}")
     private String area;
+    private List<DocenteDTO> docentes;
 }

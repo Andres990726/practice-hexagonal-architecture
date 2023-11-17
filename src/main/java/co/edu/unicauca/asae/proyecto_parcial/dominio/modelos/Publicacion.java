@@ -1,5 +1,7 @@
 package co.edu.unicauca.asae.proyecto_parcial.dominio.modelos;
 
+import java.util.List;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -14,4 +16,5 @@ public class Publicacion {
     private Tipo objTipo;
     private String titulo;
     private String area;
+    private List<Docente> docentes;
 }

@@ -18,6 +18,7 @@ public class PublicacionMapper {
         TypeMap<PublicacionEntity, Publicacion> mapa = objMapper.emptyTypeMap(PublicacionEntity.class,
                 Publicacion.class);
         mapa.addMappings(m -> m.skip(Publicacion::setObjTipo)).implicitMappings();
+        mapa.addMappings(m -> m.skip(Publicacion::setDocentes)).implicitMappings();
         return objMapper;
     }
 }

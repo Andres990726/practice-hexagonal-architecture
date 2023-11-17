@@ -1,5 +1,8 @@
 package co.edu.unicauca.asae.proyecto_parcial.infraestructura.input.controllerGestionarPublicaciones.DTORespuesta;
 
+import java.util.List;
+
+import co.edu.unicauca.asae.proyecto_parcial.infraestructura.input.controllerGestionarDocentes.DTORespuesta.DocenteDTORespuesta;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -14,4 +17,5 @@ public class PublicacionDTORespuesta {
     private TipoDTORespuesta objTipo;
     private String titulo;
     private String area;
+    private List<DocenteDTORespuesta> docentes;
 }
