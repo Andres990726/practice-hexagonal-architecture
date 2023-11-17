@@ -30,7 +30,7 @@ public class GestionarDocenteCUAdapter implements GestionarDocenteCUIntPort {
             this.objDocenteFormateadoResultadosIntPort.retornarRespuestaErrorCorreoExiste(
                     "Error, se encuents en el sistema un docente con el mismo correo");
         } else {
-            objDocenteCreado = this.objDocenteGatewayInPort.guardar(objDocente);
+            objDocenteCreado = this.objDocenteGatewayInPort.guardar(objDocenteCreado);
         }
         return objDocenteCreado;
     }

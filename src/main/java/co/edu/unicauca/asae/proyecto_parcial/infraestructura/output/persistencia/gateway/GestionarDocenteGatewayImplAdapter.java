@@ -2,11 +2,14 @@ package co.edu.unicauca.asae.proyecto_parcial.infraestructura.output.persistenci
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
 import org.springframework.stereotype.Service;
 
 import co.edu.unicauca.asae.proyecto_parcial.aplicacion.output.GestionarDocenteGatewayInPort;
+import co.edu.unicauca.asae.proyecto_parcial.dominio.modelos.Direccion;
 import co.edu.unicauca.asae.proyecto_parcial.dominio.modelos.Docente;
 import co.edu.unicauca.asae.proyecto_parcial.infraestructura.output.persistencia.entidades.DocenteEntity;
 import co.edu.unicauca.asae.proyecto_parcial.infraestructura.output.persistencia.repositories.DocenteRepository;
@@ -35,6 +38,7 @@ public class GestionarDocenteGatewayImplAdapter implements GestionarDocenteGatew
     @Override
     public Docente guardar(Docente objDocente) {
         DocenteEntity objDocenteEntity = this.docenteModelMapper.map(objDocente, DocenteEntity.class);
+        objDocenteEntity.getObjDireccion().setObjPersona(objDocenteEntity);
         DocenteEntity objDocenteEntityRegistrado = this.objDocenteRepository.save(objDocenteEntity);
         Docente objDocenteRespuesta = this.docenteModelMapper.map(objDocenteEntityRegistrado, Docente.class);
         return objDocenteRespuesta;
