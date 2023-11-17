@@ -16,7 +16,6 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Entity
-@Table(name = "Docentes")
 @Getter
 @Setter
 public class DocenteEntity extends PersonaEntity {

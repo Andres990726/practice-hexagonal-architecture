@@ -35,6 +35,7 @@ public class GestionarDocenteGatewayImplAdapter implements GestionarDocenteGatew
     @Override
     public Docente guardar(Docente objDocente) {
         DocenteEntity objDocenteEntity = this.docenteModelMapper.map(objDocente, DocenteEntity.class);
+        objDocenteEntity.getObjDireccion().setObjPersona(objDocenteEntity);
         DocenteEntity objDocenteEntityRegistrado = this.objDocenteRepository.save(objDocenteEntity);
         Docente objDocenteRespuesta = this.docenteModelMapper.map(objDocenteEntityRegistrado, Docente.class);
         return objDocenteRespuesta;
